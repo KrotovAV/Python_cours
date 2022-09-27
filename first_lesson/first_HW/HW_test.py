@@ -1,40 +1,25 @@
-print('')
-
-a = "column_number"
-b = "_url1"
-x = 1234
-globals()[a + b] = x
-print(column_number_url1)
+# 2 Напишите программу для проверки истинности утверждения ¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z 
+# для всех значений предикат.
 
 
-# str = "a"+"b"
-# print(str) # Выведет "ab"
-
-# str = "a"
-# print(str)
-# locals()[str]= 500
-# print(type(locals()[str]))
-# d = a + 1
-# print(d)
-# print(type(d))
+def inputNumbers(x):
+    xyz = ["X", "Y", "Z"]
+    a = []
+    for i in range(x):
+        a.append(input(f"Введите значение {xyz[i]}: "))
+    return a
 
 
-
-# print('-------------')
-# r = 'gghbjh'
-# print(r)
-# print(type(r))
-
-# t = 'kjhbjh'
-# print(t)
-# print(type(t))
+def checkPredicate(x):
+    left = not (x[0] or x[1] or x[2])
+    right = not x[0] and not x[1] and not x[2]
+    result = left == right
+    return result
 
 
-# str = r + t
-# print(str)
-# print(type(str))
-# locals()[str] = 10
-# print(type(locals()[str]))
-# b = str + 1
-# # print(b)
-# # print(type(b))
+statement = inputNumbers(3)
+
+if checkPredicate(statement) == True:
+    print(f"Утверждение истинно")
+else:
+    print(f"Утверждение ложно")

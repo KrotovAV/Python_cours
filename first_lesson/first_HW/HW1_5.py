@@ -21,7 +21,6 @@ write('B', 'Y')
 print('---------------')
 print('Coordinate of A point (', AX,';',AY,')')
 print('Coordinate of B point (', BX,';',BY,')')
-
 print('---------------')
 
 distance = ((AX - BX)**2 + (AY - BY)**2)**0.5
