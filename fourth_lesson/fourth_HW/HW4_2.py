@@ -4,11 +4,11 @@
 print('')
 # print('Write a namber'); 
 # n = float(input())
-n = 97
+n = 119
 
 # print('Write a max of natural namber'); 
 # k = float(input())
-k = 999
+k = 99
 
 print(n)
 
@@ -23,12 +23,12 @@ for a in range(1, k):
     if co < 3:
         simpl_nambers.append(a)
 
-# print(simpl_nambers)
-# print('------------')
+print(simpl_nambers)
+print('------------')
 
 for c in range(len(simpl_nambers)):
     for v in range(len(simpl_nambers)):
-        if c * v == n:
-           print(c, v)
+        if simpl_nambers[c] * simpl_nambers[v] == n:
+           print(simpl_nambers[c], simpl_nambers[v] )
 
 print()
