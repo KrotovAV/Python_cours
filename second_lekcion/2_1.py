@@ -13,6 +13,13 @@
 # data.writelines(colors) # разделителей не будет data.close()
 # data.close()
 # ---------------------
+# lines = ["first", "second", "third"] # Запись построчно
+# with open(r"D:\test.txt", "w") as file:
+#     for  line in lines:
+#         file.write(line + '\n')
+
+
+# ---------------------
 # colors = ['red', 'green', 'blue123'] 
 # data = open('file.txt', 'a') 
 # # data.writelines(colors) # разделителей не будет data.close()
@@ -24,13 +31,12 @@
 # ---------------------
 # colors = ['red', 'green', 'blue'] 
 # data = open('file.txt', 'w') 
-# data.writelines(colors) # разделителей не будет data.close()
+# data.writelines(colors) # разделителей не будет 
 # data.close()
 # -------------
 
-
-path = 'file.txt' 
-data = open(path, 'r') 
-for line in data: 
-    print(line) 
-data.close()
+# path = 'file.txt' 
+# data = open(path, 'r') 
+# for line in data: 
+#     print(line) 
+# data.close()

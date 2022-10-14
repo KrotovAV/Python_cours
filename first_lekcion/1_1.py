@@ -43,4 +43,7 @@ print('{1} - {2} - {0}'.format(a, b, s))
 print('')
 print(f'{a} - {b} - {s}')
 
+print("\nCумма", 1250, end="р")
+print("ООО Медовый Гексагон\n")
+
 print('')

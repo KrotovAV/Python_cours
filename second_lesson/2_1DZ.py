@@ -7,6 +7,6 @@ match a:
     case 3:
         print('Тройка')
     case 4:
-        prunt('Четверка')
+        print('Четверка')
     case _:
         print('Не 1, не 2, не 3 и не 4')
