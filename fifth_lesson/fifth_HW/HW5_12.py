@@ -1,12 +1,8 @@
-# 1. Создайте программу для игры с конфетами человек против человека.
-
-# Правила: На столе лежит 150 конфет. Играют два игрока делая ход друг после друга. 
-# Первый ход определяется жеребьёвкой. За один ход можно забрать не более чем 28 конфет. 
-# Все конфеты оппонента достаются сделавшему последний ход. Сколько конфет нужно взять первому игроку, 
-# чтобы забрать все конфеты у своего конкурента?
-
+# 1.1 Создайте программу для игры с конфетами человек против человека.
+# + бот поумней
 # a) Добавьте игру против бота
 # b) Подумайте как наделить бота 'интеллектом'
+
 
 import random
 print()
@@ -22,13 +18,29 @@ max = int(input())
 # print('a =', a)
 
 # min = 23
-b = 1
+
 while a > 0:
     f = True
-    while f == True:
-        print('max =',max, '            ','a =',a)
-        print(b , 'player write a number ')
+    print('max =',max, '            ','a =',a)
+    if b == 1:
+        print('1 player write a number ')
         c = int(input())
+    else:
+        if a > max:
+            r = random.randint(3, 4)
+            print('r = ', r)
+            if r == 3:
+                c = max
+            else:
+                c = random.randint(1, max)
+        if a < max:
+            c = a - 1
+        if c == 0:
+            c  = 1
+        print('2 player has made a move')
+
+    while f == True:
+        
         if c > max:
             print()
             print('Namber is over max ',max)
@@ -45,9 +57,9 @@ while a > 0:
             f = True
         else:
             f = False
-
-
-        # f = False
+         
+    print(c)
+    print('----------------------')
     a = a - c
 
     if b == 1:
