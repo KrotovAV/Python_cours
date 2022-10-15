@@ -39,28 +39,40 @@ for i in range(len(arch_list)):
 arch_key_str = ''
 for i in range(len(key_list)):
     arch_key_str = arch_key_str + key_list[i]
-print('arch_key_str =', arch_key_str)
+# print('arch_key_str =', arch_key_str)
 
 
 with open('HW5_32.txt', 'w') as file:
     file.write(arch_key_str + '\n')
 
+print('-----------------------')
 
 with open('HW5_32.txt') as b:
-    b = b.readline() 
+    b = b.readline()
+# print(b)
 
+arch_key_list = []
+for i in range(len(arch_key_str)):
+    # print(a[i])
+    arch_key_list.append(arch_key_str[i])
+# print(arch_key_list)
 
+n_arch_list = []
+for i in range(0, len(arch_key_list), 2):
+    a = 0
+    while a < int(arch_key_list[i+1]):
+        n_arch_list.append(arch_key_list[i])
+        a = a +1
 
-# key = str(list(pl_fi.keys())[list(pl_fi.values()).index(c)])
-#     if a == 1:
-#         pl_fi[key] = 'x'
+# print(n_arch_list)
+# print()
 
-# with open('HW5_32.txt', 'w') as file:
-#     file.write(new_eq + '\n')
-
-
-
-# with open('HW5_32.txt') as b:
-#     b = b.readline()
+arch_str = ''
+for i in range(len(n_arch_list)):
+    arch_str = arch_str + n_arch_list[i]
+print(arch_str)
 
 print()
+
+with open('HW5_33.txt', 'w') as file:
+    file.write(arch_str + '\n')
