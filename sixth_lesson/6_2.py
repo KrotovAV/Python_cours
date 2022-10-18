@@ -9,13 +9,20 @@
 
 print()
 
-str = '-5-4-1-3+2+3*4+4/2+7-8'
+str = '-5-4-1- 3+2+3 *4 +4/2+7-8'
 
 print(str)
 
 list = []
 for i in range(len(str)):
     list.append(str[i])
+
+ch = 0
+while ch < len(list):
+    if list[ch] == ' ':
+        list.pop(ch)
+    ch += 1
+# print(list)
 
 a = 0
 list2 = []
@@ -43,8 +50,8 @@ if list2[0] == '+' or list2[0] == '-':
 
 list2.pop()
 
-print(list2)
-print('=================================')
+# print(list2)
+print('----------------------------')
 
 l = len(list2)-2
 n = 0
