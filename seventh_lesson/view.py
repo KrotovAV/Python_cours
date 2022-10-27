@@ -8,7 +8,7 @@ def err_div_ze():
     print('!!!   Eror   !!! division by zero')
     print('            write again')
 
-def err_value():
+def err_namber():
     print('!!!   Eror   !!! not integer')
     print('      write again')
 
@@ -19,8 +19,8 @@ def err_action():
 def view_data(str_nam_eq, res):
     print(f'{str_nam_eq} {res}')
 
-def get_value():
-    return (input('namber = '))
+def get_namber():
+    return str(input('namber = '))
 
 def get_action():
     return (input('action : '))

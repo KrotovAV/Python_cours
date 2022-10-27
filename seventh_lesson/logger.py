@@ -1,6 +1,6 @@
 import datetime
 
-path = 'log.txt'
+path = 'logHW.txt'
 string = ''
 def logger(info: str):
     global string
