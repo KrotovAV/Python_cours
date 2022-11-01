@@ -23,16 +23,17 @@ def show_all():
         list_text[i] = list_text[i].split('|')
 
     list_b = []
-    for j in range( len(list_text)):
-        a = max([len(list_text[i][j]) for i in range(len(list_text))])
-        list_b.append(a)
-    # print(list_b)
+    for j in range(6):
+        list_b.append(max([len(list_text[i][j]) for i in range(len(list_text))]))
 
     for i in range(len(list_text)):
-        for j in range(len(list_text)):
+        for j in range(6):
             list_text[i][j] = ' ' + list_text[i][j]+ ' '*(list_b[j]+1 -len(list_text[i][j]))
         list_text[i].append('\n')
     # print('----------------')
 
     text_str = ''.join(list(map(lambda x: '|'.join(x), list_text)))
     return text_str
+
+def add():
+    return a

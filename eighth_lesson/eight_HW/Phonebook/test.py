@@ -1,5 +1,3 @@
-from functools import reduce
-print()
 
 path = 'D:/GeekBrains\My Git/2 znakomstvo s iazikami/02 python/Python_cours/eighth_lesson/eight_HW/Phonebook/phonebook.txt'
 with open(path,'r', encoding='utf8') as text:
@@ -10,31 +8,27 @@ list_text = text.splitlines()
 for i in range(len(list_text)):
     list_text[i] = list_text[i].split('|')
 
-# a = max([len(list_text[i][1]) for i in range(len(list_text))])
-# print(a)
+print((len(list_text)))
+# print(i)
+# print(j)
+
 list_b = []
-for j in range( len(list_text)):
-    a = max([len(list_text[i][j]) for i in range(len(list_text))])
-    list_b.append(a)
-print(list_b)
+for j in range(6-1):
+    list_b.append(max([len(list_text[i][j]) for i in range(len(list_text)-1)]))
+# print(list_b)
 
 for i in range(len(list_text)):
-    for j in range(len(list_text)):
+    for j in range(6-1):
         list_text[i][j] = ' ' + list_text[i][j]+ ' '*(list_b[j]+1 -len(list_text[i][j]))
     list_text[i].append('\n')
-# print(list_text)
-print('----------------')
-
-# text_str = list(map(lambda x: '|'.join(x), list_text))
-
-# print(text_str)
+# print('----------------')
 
 text_str = ''.join(list(map(lambda x: '|'.join(x), list_text)))
 print(text_str)
 
-# print(text)
-# print(list_text)
-# print(text_str)
+print('----------------')
+# №|Name|Second Name|Last name|Fone namber|Note
+# №|Имя|отчество|Фамилия|Номер телефона|Заметки
 
 
 # data = input().split() # о умолчанию символ разделитель пробел
