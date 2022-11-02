@@ -21,6 +21,7 @@ def input_value(string:str):
         except:
             print('Error, try again')
 
+
 def print_values(var):
     print(var)
 

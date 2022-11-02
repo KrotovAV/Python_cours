@@ -1,42 +1,53 @@
+import model
+import view
 
-path = 'D:/GeekBrains\My Git/2 znakomstvo s iazikami/02 python/Python_cours/eighth_lesson/eight_HW/Phonebook/phonebook.txt'
-with open(path,'r', encoding='utf8') as text:
-    text = text.read()
-# print(text)
+[['1.№', '2.Имя', '3.Отчество', '4.Фамилия', '5.№тел.', '6.Заметки'], ['001', 'Серей', 'Сергеевич', 'Сергеев', '24585822', 'сосед'], ['002', 'Иванна', 'Ивановна', 'Иванова', '25896587', 'рабочий']]
 
-list_text = text.splitlines()
-for i in range(len(list_text)):
-    list_text[i] = list_text[i].split('|')
+[[' 1.№ ', ' 2.Имя  ', ' 3.Отчество ', ' 4.Фамилия ', ' 5.№тел.  ', ' 6.Заметки ', '\n'], [' 001 ', ' Серей  ', ' Сергеевич  ', ' Сергеев   ', ' 24585822 ', ' сосед     ', '\n'], [' 002 ', ' Иванна ', ' Ивановна   ', ' Иванова   ', ' 25896587 ', ' рабочий   ', '\n'],
+['003', 'f', 'bfbfb', 'bdsba', 'vadsvad', 'dv', '\n']]
 
-print((len(list_text)))
-# print(i)
-# print(j)
 
-list_b = []
-for j in range(6-1):
-    list_b.append(max([len(list_text[i][j]) for i in range(len(list_text)-1)]))
-# print(list_b)
 
-for i in range(len(list_text)):
-    for j in range(6-1):
-        list_text[i][j] = ' ' + list_text[i][j]+ ' '*(list_b[j]+1 -len(list_text[i][j]))
-    list_text[i].append('\n')
-# print('----------------')
+    for i in range(len(list_list)):
+        for j in range(6):
+            list_list[i][j] = list_list[i][j]+ ' '*(list_b[j]+1 -len(list_list[i][j]))
+            list_list[i].append('\n')
+    text_str = ''.join(list(map(lambda x: '|'.join(x), list_list)))
 
-text_str = ''.join(list(map(lambda x: '|'.join(x), list_text)))
-print(text_str)
 
+
+
+
+ph_book = model.main()
 print('----------------')
-# №|Name|Second Name|Last name|Fone namber|Note
-# №|Имя|отчество|Фамилия|Номер телефона|Заметки
+def add_kontact(ph_book):
+    c  = str(int(ph_book[len(ph_book)-1][0]) + 1)
+    ph_book.append([0] * 0)
+
+    match len(c):
+        case 1:
+            c = '00' + str(c)
+        case 2:
+            c = '0' + str(c)
+        case '3':
+            c = str(c)
+
+    ph_book[len(ph_book)-1].insert(0, c)
+    return ph_book
+
+for i in range(5):
+    c = view.input_value('write ')
+    ph_book[len(ph_book)-1].insert(i+1, c)
+
+print(ph_book)
 
 
-# data = input().split() # о умолчанию символ разделитель пробел
-# data = input().split(',') # символ разделитель запятая
-# data = list(map(int, input().split()))
-# print(data)
+# Сортировка списка строками
+# names = ["Стив", "Рейчел", "Майкл", "Адам", "Джессика", "Лестер"]
+# names.sort()
+# print(names)
+# ['Адам', 'Джессика', 'Лестер', 'Майкл', 'Рейчел', 'Стив']
 
-# print(list_text[2][1])
 
 # >>> elements = ['слон', 'кот', 'лошадь', 'змея', 'рыба']
 # >>> if 'кот' in elements:
