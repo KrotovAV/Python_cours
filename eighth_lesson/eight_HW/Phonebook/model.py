@@ -7,52 +7,34 @@ def main():
     with open(path,'r', encoding='utf8') as text:
         text = text.read()
     text = text.replace(' ','')
-    # print(text)
+    return text
 
+def my_split(text):
     list_text = text.splitlines()
     for i in range(len(list_text)):
         list_text[i] = list_text[i].split('|')
-    # print('main=',list_text)
+    for i in range(len(list_text)):
+        list_text[i][-1] = list_text[i][-1] + '\n'
     return list_text
 
-
 def show_all(list_list):
-    # if list_list[len(list_list)-1][len(list_list[len(list_list)-1])-1] == '\n':
-    #     print('xxxx')
-    #     # list_list[len(list_list)-1][len(list_list[len(list_list)-1])-1]
-    #     list_list[len(list_list)-1].pop()
-
-    # print(list_list)
+    # print('вход щоу олл',list_list)
     list_b = []
-    for j in range(6):
-        list_b.append(max([len(list_list[i][j]) for i in range(len(list_list))]))
-
-    for i in range(len(list_list)):
-        for j in range(6):
-            if list_b[j] != len(list_list[i][j]):
-                list_list[i][j] = list_list[i][j]+ ' '*(list_b[j] -len(list_list[i][j]))
-        if list_list[i][-1] != '\n':
-            list_list[i].append('\n')
-    text_str = ''.join(list(map(lambda x: '|'.join(x), list_list)))
-    # if list_list[len(list_list)-1][len(list_list[len(list_list)-1])-1] == '\n':
-    #     print('xxxx')
-    #     # list_list[len(list_list)-1][len(list_list[len(list_list)-1])-1]
-    #     list_list[len(list_list)-1].pop()
-    return text_str
-
-def replace(list_list):
+    for j in range(len(list_list[0])):
+        list_b.append(max([len(list_list[i][j]) for i in range(len(list_list)-1)]))
     for i in range(len(list_list)):
         for j in range(len(list_list[i])):
-            list_list[i][j]= list_list[i][j].replace('|','')
-    if list_list[len(list_list)-1][len(list_list[len(list_list)-1])-1] == '\n':
-        print('xxxx')
-        # list_list[len(list_list)-1][len(list_list[len(list_list)-1])-1]
-        list_list[len(list_list)-1].pop()
+            if list_b[j] != len(list_list[i][j]):
+                if j == len(list_list[i]) - 1:
+                    list_list[i][-1] = list_list[i][-1][:-1] + ' '*(list_b[j] -len(list_list[i][j])) + list_list[i][-1][-1:]
+                else:
+                    list_list[i][j] = list_list[i][j]+ ' '*(list_b[j] -len(list_list[i][j]))
+    text_str = ''.join(list(map(lambda x: '|'.join(x), list_list)))
+    return text_str
 
-    return list_list
 
 def add_kontact(ph_book):
-    c  = str(int(ph_book[len(ph_book)-1][0]) + 1)
+    c = str(int(ph_book[len(ph_book)-1][0]) + 1)
     ph_book.append([0] * 0)
 
     match len(c):
@@ -65,3 +47,22 @@ def add_kontact(ph_book):
 
     ph_book[len(ph_book)-1].insert(0, c)
     return ph_book
+
+def search(ph_book_list, val, val_search):
+    j = int(val) - 1
+    res_list = [ph_book_list[0]]
+    if val == '7':
+        for i in range(1, len(ph_book_list)):
+            for j in range(len(ph_book_list[i])):
+                if val_search in ph_book_list[i][j]:
+                    res_list.append(ph_book_list[i])
+                    break
+    else:
+        for i in range(1, len(ph_book_list)):
+            if val_search in ph_book_list[i][j]:
+                res_list.append(ph_book_list[i])
+                ph_book_list[i][-1] = ph_book_list[i][-1] + '\n'
+    if len(res_list) == 1:
+        se = res_list.append([val_search,'  -   N O T   F O U N D   '])
+    se = (''.join(list(map(lambda x: '|'.join(x), res_list))))
+    return se
