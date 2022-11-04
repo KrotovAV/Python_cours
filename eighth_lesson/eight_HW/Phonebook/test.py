@@ -1,7 +1,7 @@
 import model
 import view
 
-tel = [['1.№', '2.Имя', '3.Отчество', '4.Фамилия', '5.№тел.', '6.Заметки'], 
+ph_book = [['1.№', '2.Имя', '3.Отчество', '4.Фамилия', '5.№тел.', '6.Заметки'], 
         ['001', 'Сергей', 'Сергеевич', 'Сергеев', '24585822', 'сосед'], 
         ['002', 'Иванна', 'Ивановна', 'Иванова', '25896587', 'рабочий'],
         ['003', 'Стас', 'Стасович', 'Стасов', '25698742', 'дача'],
@@ -10,65 +10,27 @@ tel = [['1.№', '2.Имя', '3.Отчество', '4.Фамилия', '5.№т�
 # ['003', 'f', 'bfbfb', 'bdsba', 'vadsvad', 'dv', '\n']]
 # ph_book_list = tel
 # val = '3'
-# val_search = 'ов'
 
+val_i = 1
+obj = 'fghj'
 print()
-def search(ph_book_list, val, val_search):
-    j = int(val) - 1
-    # res_list = []
-    res_list = [ph_book_list[0]]
-    ph_book_list[0][-1] = ph_book_list[0][-1] + '\n'
-    if val == '7':
-        for i in range(1, len(ph_book_list)):
-            for j in range(len(ph_book_list[i])):
-                if val_search in ph_book_list[i][j]:
-                    print('y=',ph_book_list[i][j])
-                    res_list.append(ph_book_list[i])
-                    ph_book_list[i][-1] = ph_book_list[i][-1] + '\n'
-                    break
-    else:
-        for i in range(1, len(ph_book_list)):
-            # print(ph_book_list[i])
-            if val_search in ph_book_list[i][j]:
-                print('x=',ph_book_list[i][j])
-                res_list.append(ph_book_list[i])
-                ph_book_list[i][-1] = ph_book_list[i][-1] + '\n'
-    if len(res_list) == 1:
-        se = res_list.append([val_search,'  -   N O T   F O U N D   '])# (['--','----','----','--NOT--','-FOUND--',' '])
-    se = (''.join(list(map(lambda x: '|'.join(x), res_list))))
-    se = se.replace('\n|','')
-    return se
+# readline.insert_text(obj)
+# b = input('_prompt')
+b = readline.insert_text(obj)
+# b = rl_insert_text() 
+print(b)
+# value = (input(string))
+# c = readline(obj)
+# print(c)
+# def change_value(change_string, nam_i, nam_j, string:str):
+#     # print(change_string[old_value][nam_j])
+#     change_string[nam_i][nam_j] = read(change_string[nam_i][nam_j](string))
+#     return change_string[nam_i][nam_j]
 
-def show_all(list_list):
-    # print('1=',list_list)
-    list_b = []
-    for j in range(len(list_list[0])):
-        list_b.append(max([len(list_list[i][j]) for i in range(len(list_list)-1)]))
-    # print('2=',list_list)
-    for i in range(len(list_list)):
-        for j in range(len(list_list[i])):
-            if list_b[j] != len(list_list[i][j]):
-                list_list[i][j] = list_list[i][j]+ ' '*(list_b[j] -len(list_list[i][j]))
-        if list_list[i][-1] != '\n':
-            list_list[i].append('\n')
-    text_str = ''.join(list(map(lambda x: '|'.join(x), list_list)))
-    # print('3=',list_list)
-    return text_str
+# ph_book[val_i][1]= change_value(ph_book, val_i, 1, 'Change name '+ '(' + ph_book[val_i][1]+ ')  ')
 
-def my_split(text):
-    list_text = text.splitlines()
-    for i in range(len(list_text)):
-        list_text[i] = list_text[i].split('|')
-    return list_text
-
-search_string = search(tel, '7', 'ж')
-
-search_string = my_split(search_string)
-print(show_all(search_string))
-
-
-
-
+# print(ph_book[val_i][1])
+print()
 # >>> elements = ['слон', 'кот', 'лошадь', 'змея', 'рыба']
 # >>> if 'кот' in elements:
 # 	print('meow')	

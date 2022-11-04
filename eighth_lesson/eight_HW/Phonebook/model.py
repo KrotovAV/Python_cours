@@ -18,7 +18,7 @@ def my_split(text):
     return list_text
 
 def show_all(list_list):
-    # print('вход щоу олл',list_list)
+    # print('вход щоу олл ',list_list)
     list_b = []
     for j in range(len(list_list[0])):
         list_b.append(max([len(list_list[i][j]) for i in range(len(list_list)-1)]))
@@ -55,14 +55,16 @@ def search(ph_book_list, val, val_search):
         for i in range(1, len(ph_book_list)):
             for j in range(len(ph_book_list[i])):
                 if val_search in ph_book_list[i][j]:
+                    nam_i = i
                     res_list.append(ph_book_list[i])
                     break
     else:
         for i in range(1, len(ph_book_list)):
             if val_search in ph_book_list[i][j]:
+                nam_i = i
                 res_list.append(ph_book_list[i])
-                ph_book_list[i][-1] = ph_book_list[i][-1] + '\n'
     if len(res_list) == 1:
         se = res_list.append([val_search,'  -   N O T   F O U N D   '])
+        nam_i = 0
     se = (''.join(list(map(lambda x: '|'.join(x), res_list))))
-    return se
+    return se, nam_i
