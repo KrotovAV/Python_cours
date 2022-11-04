@@ -19,9 +19,8 @@ def start_prog():
                 ph_book[len(ph_book)-1].insert(i+3, view.input_value('write last name '))
                 ph_book[len(ph_book)-1].insert(i+4, view.input_value('write phone '))
                 ph_book[len(ph_book)-1].insert(i+5, view.input_value('write note ')+'\n')
-                # ph_book[len(ph_book)-1].insert(i+5, view.input_value('write note '))
                 view.print_empty()
-                view.print_values(model.show_all(ph_book))
+                # view.print_values(model.show_all(ph_book))
             case '3':
                 search_string = ''
                 view.search_menu()
@@ -44,17 +43,40 @@ def start_prog():
                 view.print_empty()
                 search_string = model.my_split(search_string)
                 view.print_values(model.show_all(search_string))
-                # view.print_empty()
-                ph_book[val_i][1]= view.change_value(ph_book, val_i, 1, 'Change name '+ '(' + ph_book[val_i][1]+ ')  ')
-                ph_book[val_i][2]= view.change_value(ph_book, val_i, 2, 'Change second name '+ '(' + ph_book[val_i][2]+ ')  ')
-                ph_book[val_i][3]= view.change_value(ph_book, val_i, 3, 'Change last name '+ '(' + ph_book[val_i][3]+ ')  ')
-                ph_book[val_i][4]= view.change_value(ph_book, val_i, 4, 'Change phone  '+ '(' + ph_book[val_i][4]+ ')  ')
-                ph_book[val_i][5]= (view.change_value(ph_book, val_i, 5, 'Change note  '+ '(' + ph_book[val_i][5]+ ')  '))+'\n'
 
-                # view.print_values(model.show_all(ph_book[val_i]))
+                change = view.input_value('Write "y" to change ')
+                if change == 'y':
+                    ph_book[val_i][1] = view.change_value(ph_book, val_i, 1, 'Change name '+ '(' + ph_book[val_i][1]+ ')  ')
+                    ph_book[val_i][2] = view.change_value(ph_book, val_i, 2, 'Change second name '+ '(' + ph_book[val_i][2]+ ')  ')
+                    ph_book[val_i][3] = view.change_value(ph_book, val_i, 3, 'Change last name '+ '(' + ph_book[val_i][3]+ ')  ')
+                    ph_book[val_i][4] = view.change_value(ph_book, val_i, 4, 'Change phone  '+ '(' + ph_book[val_i][4]+ ')  ')
+                    ph_book[val_i][5] = ph_book[val_i][5][:-1]
+                    ph_book[val_i][5] = (view.change_value(ph_book, val_i, 5, 'Change note  '+ '(' + ph_book[val_i][5]+ ')  ')) + '\n'
+                # view.print_empty()
+                # view.print_values(model.show_all(ph_book))
             case '5':
-                print("удлить")
+                del_string = ''
+                view.change_menu()
+                var_ch_del = view.input_value('Choose namber of search to delite ')
+                match var_ch_del:
+                    case '1':
+                        del_string, val_i_del = model.search(ph_book,'1', view.input_value('Write to search '))
+                    case '2':
+                        view.search_menu()
+                        del_string, val_i_del = model.search(ph_book,view.input_value('Choose namber of search column '), view.input_value('Write to search '))
+                view.print_empty()
+                del_string = model.my_split(del_string)
+                view.print_values(model.show_all(del_string))
+                delite = view.input_value('Write " d " to delite ')
+                view.print_empty()
+                if delite == 'd':
+                    ph_book.pop(val_i_del)
+                view.print_empty()
+                ph_book = model.renumerate(ph_book)
+                # view.print_values(model.show_all(ph_book))
             case '6':
+                print('сохранить')
+            case '7':
                 print('сохранить')
             case '8':
                 break

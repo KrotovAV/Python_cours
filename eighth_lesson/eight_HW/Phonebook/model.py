@@ -18,10 +18,11 @@ def my_split(text):
     return list_text
 
 def show_all(list_list):
-    # print('вход щоу олл ',list_list)
+    print(list_list)
     list_b = []
     for j in range(len(list_list[0])):
-        list_b.append(max([len(list_list[i][j]) for i in range(len(list_list)-1)]))
+        print(max([len(list_list[i][j]) for i in range(len(list_list))]))
+        list_b.append(max([len(list_list[i][j]) for i in range(len(list_list))]))
     for i in range(len(list_list)):
         for j in range(len(list_list[i])):
             if list_b[j] != len(list_list[i][j]):
@@ -64,7 +65,22 @@ def search(ph_book_list, val, val_search):
                 nam_i = i
                 res_list.append(ph_book_list[i])
     if len(res_list) == 1:
-        se = res_list.append([val_search,'  -   N O T   F O U N D   '])
+        se = res_list.append([val_search,' NOT ',' FOUND ','','',''])
         nam_i = 0
     se = (''.join(list(map(lambda x: '|'.join(x), res_list))))
     return se, nam_i
+
+def renumerate(ph_book):
+    for i in range(2,len(ph_book)):
+        c = str(int(ph_book[i][0]))
+#     print(c)
+#     print('l=', len(c))
+        match len(c):
+            case 1:
+                c = '00' + str(c)
+            case 2:
+                c = '0' + str(c)
+            case '3':
+                c = str(c)
+        ph_book[i][0] = c
+    return ph_book

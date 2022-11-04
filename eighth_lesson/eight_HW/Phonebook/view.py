@@ -20,8 +20,8 @@ def search_menu():
     print(nenu_sea)
     print(nenu_se0)
 
-menu_chang0 = '                                                  ---------- -----------'
-menu_change = '                                                  | 1. По № | 2 Поиком |'
+menu_chang0 = '                                                  ---------- ------------'
+menu_change = '                                                  | 1. По № | 2 Поиском |'
 def change_menu():
     print(menu_chang0)
     print(menu_change)
