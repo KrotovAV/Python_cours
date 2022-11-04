@@ -1,10 +1,8 @@
 import controller
-# ':Показать все контакты, '1': Открыть файл с контактами,
-#                     '2': Записать файл с контактами, '3': Добавить контакт,
-#                     '4': Изменить контакт, '5': Удалить контакт, '6': Поиск по контактам}
-men0 = '         -------------- ------------- ------------ ------------- ------------ ----------- ------------- ----------'
-menu = "         | 1. Показать | 2. Добавить | 3. Поиск   | 4. Изменить | 5. Удалить |6. Открыть | 7. Сохранить|    8.   |"
-men2 = "         | все конт-ты |   контакт   | по конт-ам |   контакт   |  контакт   |    файл с контактами    |  выход  |"
+
+men0 = '         ------------- ------------- ------------- ------------ ------------- ------------ ------------- ----------'
+menu = "         | 1. Открыть | 2. Показать | 3. Добавить | 4. Поиск   | 5. Изменить | 6. Удалить | 7. Сохранить|    8.   |"
+men2 = "         |    файл    | все конт-ты |   контакт   | по конт-ам |   контакт   |  контакт   |   в файл    |  выход  |"
 def show_menu():
     # print()
     print(men0)
@@ -27,20 +25,35 @@ def change_menu():
     print(menu_change)
     print(menu_chang0)
 
+menu_re0 = '                                                 ------------------ ----------------- ----------------------------'
+menu_rec = '                                                 | 1. По умолчанию | 2. Выбрать файл | 3. Присвоить по умолчанию |'
+def rec_menu():
+    print(menu_re0)
+    print(menu_rec)
+    print(menu_re0)
+
+menu_op0 = '         ------------------ ----------------- --------------------------'
+menu_ope = '         | 1. По умолчанию | 2. Выбрать файл |3. Присвоить по умолчанию|'
+def op_menu():
+    print(menu_op0)
+    print(menu_ope)
+    print(menu_op0)
+
+default_ope_path = '/eight_HW/Phonebook/phonebook.txt'
+# default_ope_path = 'D:/GeekBrains/My Git/2 znakomstvo s iazikami/02 python/Python_cours/eighth_lesson/eight_HW/Phonebook/phonebook.txt'
+# default_rec_path = '\eight_HW\Phonebook\phonebook.txt'
+default_rec_path = 'D:/GeekBrains/My Git/2 znakomstvo s iazikami/02 python/Python_cours/eighth_lesson/eight_HW/Phonebook/phonebook.txt'
+
 def input_value(string:str):
     while True:
         try:
             value = (input(string))
             return value
         except:
-            print('Error, try again')
+            print('Error, not from 1 to 8. Try again')
 
 def change_value( change_string, nam_i, nam_j, string:str):
-    # print(change_string[nam_i][nam_j])
     change_string[nam_i][nam_j] = (input(string))
-    # inp = (input(string))
-    # if c != '':
-    #     change_string[nam_i][nam_j] = inp
     return change_string[nam_i][nam_j]
 
 def print_values(var):

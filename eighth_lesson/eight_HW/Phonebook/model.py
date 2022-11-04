@@ -2,9 +2,9 @@ import controller
 
 # menu = "0. Показать все контакты: 1. Открыть файл с контактами: 2. Записать файл с контактами: 3. Добавить контакт: 4. Изменить контакт: 5. Удалить контакт: 6. Поиск по контактам'"
 
-def main():
-    path = 'D:/GeekBrains\My Git/2 znakomstvo s iazikami/02 python/Python_cours/eighth_lesson/eight_HW/Phonebook/phonebook.txt'
-    with open(path,'r', encoding='utf8') as text:
+def main(p):
+    p = 'D:/GeekBrains\My Git/2 znakomstvo s iazikami/02 python/Python_cours/eighth_lesson/eight_HW/Phonebook/phonebook.txt'
+    with open(p,'r', encoding='utf8') as text:
         text = text.read()
     text = text.replace(' ','')
     return text
@@ -18,10 +18,10 @@ def my_split(text):
     return list_text
 
 def show_all(list_list):
-    print(list_list)
+    # print(list_list)
     list_b = []
     for j in range(len(list_list[0])):
-        print(max([len(list_list[i][j]) for i in range(len(list_list))]))
+        # print(max([len(list_list[i][j]) for i in range(len(list_list))]))
         list_b.append(max([len(list_list[i][j]) for i in range(len(list_list))]))
     for i in range(len(list_list)):
         for j in range(len(list_list[i])):
@@ -35,6 +35,9 @@ def show_all(list_list):
 
 
 def add_kontact(ph_book):
+    if ph_book =='1 | Choose | action ( 1 ) |to |open |file':
+        print(ph_book)
+        return
     c = str(int(ph_book[len(ph_book)-1][0]) + 1)
     ph_book.append([0] * 0)
 
@@ -84,3 +87,8 @@ def renumerate(ph_book):
                 c = str(c)
         ph_book[i][0] = c
     return ph_book
+
+def record(ph_book, pa):
+    text_str = ''.join(list(map(lambda x: '|'.join(x), ph_book)))
+    with open(pa, 'w', encoding='utf8') as file:
+        file.write(text_str)
