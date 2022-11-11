@@ -5,7 +5,7 @@ from telegram.ext import Updater, CommandHandler, CallbackContext
 from bot_command import *
 # import datetime
 
-updater = Updater('5181600578:AAEPU7j2TZENT1k7tWWBAyP8kIwWDWmowhM')
+updater = Updater('token')
 
 updater.dispatcher.add_handler(CommandHandler('hello', hello_command))
 updater.dispatcher.add_handler(CommandHandler('hi', hi_command))
