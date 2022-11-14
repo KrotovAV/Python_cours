@@ -74,13 +74,15 @@ async def player_Choice(message: types.Message):
         return
 
     count = model.getCount()
+    if count == model.get_Max_Take()+1: take = 1
     if count >= model.get_Max_Take():
         take = count%model.get_Max_Take()+1 if count%model.get_Max_Take()+1 != 0 else random.randint(1, model.get_Max_Take())
     if count < model.get_Max_Take():
         if count-1 == 0 or count-1 < 0 : 
             take = count
         else:
-            take = count-1
+            if count == 3: take = count-1
+            if count == 2: take = count-1
     model.setTake(take)
     model.setCount(count - take)
     await bot.send_message(message.from_user.id, f'Мастер взял {model.getTake()} шт,\n'

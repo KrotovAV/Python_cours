@@ -7,7 +7,7 @@ user_count = 21
 total_count = user_count
 turn = None
 game_turn = None
-max_take = 3
+max_take = 4
 take = None
 
 def getFirstTurn():
